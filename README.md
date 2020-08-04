@@ -26,7 +26,7 @@ $ python vbb2xml.py # transfer the vbb annotations to xml files
 
 #### Pre-Trained Models
 
-There are one pretrained models in saved_models folder, please use pickle to load the model.
+There is a pretrained model in model folder, please use pickle to load the model.
 
 ```python
 >>>import pickle 
