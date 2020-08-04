@@ -1,3 +1,5 @@
+# this code was based on the code from internet, see more in MORE.md
+
 import os, glob
 import cv2
 from scipy.io import loadmat
@@ -162,14 +164,7 @@ def main():
     vbb_inputdir = "F:/HOGSVM/annotations/"
     vbb_outputdir = "F:/HOGSVM/annotations/"
     parse_anno_file(vbb_inputdir, vbb_outputdir)
-
-    """
-    下面这段是测试代码
-    """
-
-
-    # """
-
+    
 
 if __name__ == "__main__":
     # main()
