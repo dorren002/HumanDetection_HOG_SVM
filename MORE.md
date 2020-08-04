@@ -14,7 +14,7 @@ y-label（1-有行人，0-没有行人）
 
 ## 第四步：验证
 
-将验证集投入训练得到的模型，比对结果。
+将验证集投入训练得到的模型，比对结果。【evaluate】
 
 
 
@@ -22,5 +22,7 @@ y-label（1-有行人，0-没有行人）
 
 ## 参考文献：
 [1]Dalal, N. and Triggs, B., “Histograms of oriented gradients for human detection,” in [Computer Vision and Pattern Recognition, 2005. CVPR 2005. IEEE Computer Society Conference on ], 1, 886–893 vol. 1 (June).
+
 [2]利用Hog特征和SVM分类器进行行人检测: https://blog.csdn.net/carson2005/article/details/7841443
+
 [3]行人检测数据集转换代码：https://download.csdn.net/download/fan0920/10935382
