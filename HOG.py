@@ -3,7 +3,7 @@ import math
 
 '''
 hg = HOG()        # 新建示例
-hg.compute(img)   # 提取img图像HOG特征，发挥1*3780维特征向量 
+hg.compute(img)   # 提取img图像HOG特征，返回1*3780维特征向量 
 '''
 
 class HOG():
