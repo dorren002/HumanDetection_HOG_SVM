@@ -4,24 +4,27 @@ from sklearn import svm
 import numpy as np
 
 '''
-数据集文件夹结构
+the architecture of the folder dataset is like
+
 -dataset
     -trainphoto
         -posphoto
         -negphoto
-    -testphoto(打乱后的测试集图片）
-    -testphoto_result(测试集标签用于比对)
+    -testphoto
+    -testphoto_result(the sequence of the label of the testphoto)
+    
+all the training pictures' size is 64*128
 '''
 
-
-# 临时储存HOG特征和标记对  格式：(标签，HOG特征)
 def add_label(id, feature, label):
+    '''build (photoID,HOGvectors) likely pairs for training'''
     global samples
     samples[id] = np.insert(feature, 0, label)
 
-
-# 获取hog特征并保存，输入数据集路径
+    
 def hog_label_save(path):
+    '''compute the feature of the image and save them in the global variable samples, or you can put them into two variables. 
+       the input, path is the directory of training sets'''
     label = 0
     i=0
     count = 0
@@ -44,7 +47,6 @@ def hog_label_save(path):
         i+=1
 
 
-# svm训练函数
 def svm_(train_x,train_y):
     clf = svm.SVC(kernel="linear", cache_size=800)
     clf.fit(train_x, train_y)
@@ -54,17 +56,17 @@ def svm_(train_x,train_y):
 if __name__ == "__main__":
     global samples
     samples = {}
-    datapath = ".\\dataset\\trainphoto\\"
+    datapath = ".\\dataset\\trainphoto\\"       # your directory of training set here
     hog_label_save(datapath)
-    print("hog_done")
+    # print("computing_hog_done")
 
-    print("total_train_data:", len(samples))
+    # print("total_train_data:", len(samples))
     train=[v for v in samples.values()]
     train = np.array(train)
-    # 降临时储存的(标签-hog)拆分并放入SVM
+    
     train_x = train[:,1:]
     train_y = train[:,0]
-    print("training...")
+    # print("training...")
     clf = svm_(train_x, train_y)
 
     f = open('saved_model/m4.pickle', 'wb')
